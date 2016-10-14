@@ -24,14 +24,14 @@
  */
 
 import UserAcquisitionStoreFactory from '../../data/repository/dataSource/UserAcquisitionStoreFactory';
-import UserAcquisitionRepository from '../../data/repository/UserAcquisitionRepository';
-import StoreUserAcquisition from '../../domain/interactor/StoreUserAcquisition';
+import UserAcquisitionRepository from '../../data/repository/UserAquisitionRepository';
+import StoreUserAcquisition from '../../domain/StoreUserAcquisition';
 
 class AcquireUserPresenter {
     constructor(view) {
         this.view = view;
-        const UserAcquisitionStoreFactory = new UserAcquisitionStoreFactory();
-        const UserAcquisitionRepository = new UserAcquisitionRepository(dataStoreFactory);
+        const userAcquisitionStoreFactory = new UserAcquisitionStoreFactory();
+        const userAcquisitionRepository = new UserAcquisitionRepository(userAcquisitionStoreFactory);
     }
 
     /*
