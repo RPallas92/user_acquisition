@@ -22,9 +22,12 @@
  * SOFTWARE.
  *
  */
- 
+
+import './AcquireUserView.css';
 import React, { Component } from 'react';
+
 import TitleBar from '../../../common/components/TitleBar';
+import Form from "react-jsonschema-form";
 
 import Presenter from '../presenter/AcquireUserPresenter';
 
@@ -36,8 +39,17 @@ class AcquireUserView extends Component {
     this.state = {
       user: {}
     };
-  }
 
+    this.schema = {
+        title: "User Acquisition",
+        type: "object",
+        required: ["title"],
+        properties: {
+            title: {type: "string", title: "Title", default: "A new task"},
+            done: {type: "boolean", title: "Done?", default: false}
+        }
+    };
+  }
 
   componentDidMount(){
     this.presenter.resume()
@@ -55,8 +67,11 @@ class AcquireUserView extends Component {
   render() {
     return (
       <div>
-        <TitleBar title={"User List"}/>
-
+        <TitleBar title={"New York Marathon"}/>
+        <Form schema={this.schema}
+            onChange={() => console.log("changed")}
+            onSubmit={() =>console.log("submitted")}
+            onError={() =>console.log("errors")} />
       </div>
     );
   }

@@ -22,12 +22,13 @@
  * SOFTWARE.
  *
  */
- 
+import './TitleBar.css';
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
 
 const TitleBar = ({title}) => (
-    <div>
-      <h1> {title} </h1>
+    <div className='title'>
+        <span> {title} </span>
     </div>
 );
 
