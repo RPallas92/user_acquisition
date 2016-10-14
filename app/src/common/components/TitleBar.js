@@ -23,47 +23,12 @@
  *
  */
  
-import React, { Component } from 'react';
-import TitleBar from '../../../common/components/TitleBar';
+import React from 'react';
 
-import Presenter from '../presenter/AcquireUserPresenter';
+const TitleBar = ({title}) => (
+    <div>
+      <h1> {title} </h1>
+    </div>
+);
 
-
-class AcquireUserView extends Component {
-  constructor(props) {
-    super(props);
-    this.presenter = new Presenter(this);
-    this.state = {
-      user: {}
-    };
-  }
-
-
-  componentDidMount(){
-    this.presenter.resume()
-  }
-
-  componentWillUnmount(){
-    this.presenter.pause()
-  }
-
-
-  onFilterUsersChange(term) {
-    this.presenter.filterUsers(term)
-  }
-
-  render() {
-    return (
-      <div>
-        <TitleBar title={"User List"}/>
-
-      </div>
-    );
-  }
-}
-
-
-export default AcquireUserView;
-
-
-
+export default TitleBar;
