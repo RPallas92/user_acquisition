@@ -23,11 +23,11 @@
  *
  */
 
-import inMemoryConfigStore from './InMemoryConfigStore';
+import InMemoryConfigStore from './InMemoryConfigStore';
 
 class ConfigStorefactory {
     createInMemoryDataStore() {
-        return inMemoryConfigStore;
+        return new InMemoryConfigStore();
     }
 }
 export default ConfigStorefactory;

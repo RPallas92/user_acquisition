@@ -23,54 +23,15 @@
  *
  */
 
-import UserAcquisitionStoreFactory from '../../data/repository/dataSource/UserAcquisitionStoreFactory';
-import UserAcquisitionRepository from '../../data/repository/UserAquisitionRepository';
-import StoreUserAcquisition from '../../domain/StoreUserAcquisition';
-
-class AcquireUserPresenter {
-    constructor(view) {
-        this.view = view;
-        const userAcquisitionStoreFactory = new UserAcquisitionStoreFactory();
-        const userAcquisitionRepository = new UserAcquisitionRepository(userAcquisitionStoreFactory);
-        this.storeUserAcquistion = new StoreUserAcquisition(userAcquisitionRepository);
+class ConfigRepository {
+    constructor(configStoreFactory) {
+        this.configStoreFactory = configStoreFactory;
+        this.configDataStore = this.configStoreFactory.createInMemoryDataStore();
     }
 
-    /*
-     * Called by the view when its loaded/mounted
-     */
-    resume() {
-        console.log("AcquireUserPresenter - resume")
+    getConfig(configParams) {
+        return this.configDataStore.getConfig(configParams);
     }
-
-    /*
-     * Called by the view when its unloaded/unmounted
-     */
-    pause() {
-        console.log("AcquireUserPresenter - pause")
-    }
-
-    /*
-     *  Executes the StoreUserAcquisition Use case and notifies the view with the result
-     */
-    storeAcquisition(acquisition) {
-        return this.storeUserAcquistion.execute(acquisition);
-    }
-
-    /**
-     * Returns a promise with the acquisition schema in order to render de form
-     */
-    retrieveAcquisitionSchema() {
-
-    }
-
-
-    onFormSubmitted(acquisition) {
-        return this.storeAcquisition(acquisition);
-    }
-
-
 }
 
-
-
-export default AcquireUserPresenter;
+export default ConfigRepository;

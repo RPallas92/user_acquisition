@@ -30,17 +30,19 @@ class ConfigService {
     }
 
     loadConfig() {
-        if (mustLoadConfig()) {
-
+        if (this.mustLoadConfig()) {
+            const configParams = {}; //TODO
+            this.getConfig.execute(configParams)
+                .then((config) => this.config = config)
         }
     }
 
     mustLoadConfig() {
-        return Object.keys(this.config).length === 0 && obj.constructor === Object;
+        return Object.keys(this.config).length === 0 && this.config.constructor === Object;
     }
 
     getAcquisitionSchema() {
-
+        //TODO
     }
 
 }

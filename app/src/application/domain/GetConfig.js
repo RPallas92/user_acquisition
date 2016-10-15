@@ -28,8 +28,8 @@ class GetConfig {
         this.configRepository = configRepository;
     }
 
-    execute() {
-        return this.configRepository.getConfig();
+    execute(configParams) {
+        return this.configRepository.getConfig(configParams);
     }
 }
 
