@@ -26,7 +26,7 @@
 import './AcquireUserView.css';
 import React, { Component } from 'react';
 
-import TitleBar from '../../../common/components/TitleBar';
+import TitleBar from '../../../application/components/TitleBar';
 import Form from "react-jsonschema-form";
 
 import Presenter from '../presenter/AcquireUserPresenter';
@@ -60,10 +60,6 @@ class AcquireUserView extends Component {
   }
 
 
-  onFilterUsersChange(term) {
-    this.presenter.filterUsers(term)
-  }
-
   render() {
     return (
       <div>
@@ -72,6 +68,7 @@ class AcquireUserView extends Component {
             onChange={() => console.log("changed")}
             onSubmit={() =>console.log("submitted")}
             onError={() =>console.log("errors")} />
+            <img src={'http://za.shadestation.com/media/thumbs/960x152/media/header_images/Shade%20Station%20originals%20bannerfw960fh152.jpg'} className="banner"/>
       </div>
     );
   }
