@@ -51,7 +51,8 @@ class AcquireUserView extends Component {
   render() {
     return (
       <div>
-        <Form schema={config.acquistionSchema}
+        <Form className="acquisitionForm"
+            schema={config.acquistionSchema}
             onChange={() => console.log("changed")}
             onSubmit={() =>console.log("submitted")}
             onError={() =>console.log("errors")}>

@@ -32,10 +32,13 @@ class InMemoryConfigStore {
             acquistionSchema: {
                 title: "User Acquisition",
                 type: "object",
-                required: ["title"],
+                required: ["email", "firstName", "lastName", "birthDate", "country"],
                 properties: {
-                    title: { type: "string", title: "Title", default: "A new task" },
-                    done: { type: "boolean", title: "Done?", default: false }
+                    email: { type: "string", title: "Email" },
+                    firstName: { type: "string", title: "First name" },
+                    lastName: { type: "string", title: "Last name" },
+                    birthDate: { type: "string", format: "alt-date", title: "Date of birth" },
+                    country: { type: "number", title: "Country", enum: [1, 2, 3], enumNames: ["Spain", "Germany", "United States"] }
                 }
             },
             bannerImage: 'http://za.shadestation.com/media/thumbs/960x152/media/header_images/Shade%20Station%20originals%20bannerfw960fh152.jpg'
