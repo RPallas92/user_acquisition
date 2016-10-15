@@ -25,8 +25,8 @@
 import './TitleBar.css';
 import React from 'react';
 
-const TitleBar = ({title}) => (
-    <div className='title'>
+const TitleBar = ({title, color}) => (
+    <div style={{background: color}} className='title'>
         <span> {title} </span>
     </div>
 );

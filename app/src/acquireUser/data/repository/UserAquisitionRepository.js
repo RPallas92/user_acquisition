@@ -37,7 +37,7 @@ class UserAcquisitionRepository {
     }
 
     acquisitons() {
-        return this.userDataStore
+        return this.userDataStore;
     }
 
 }

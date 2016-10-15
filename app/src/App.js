@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TitleBar from './application/components/TitleBar';
 import AcquireUserView from './acquireUser/presentation/view/AcquireUserView';
 import ConfigService from './application/domain/ConfigService'
 import config from './application/config/Config'
@@ -10,6 +11,12 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      configLoaded: false
+    };
+  }
 
   componentDidMount(){
     this.createConfigService();
@@ -24,15 +31,26 @@ class App extends Component {
   }
 
   loadConfig(){
-    this.configService.loadConfig();
+    this.configService.loadConfig()
+      .then(() => this.setState({ configLoaded: true }));
   }
 
   render() {
-    return (
-      <div className="App">
-        <AcquireUserView/>
-      </div>
-    );
+    if(this.state.configLoaded){
+      return (
+        <div className="App">
+          <TitleBar color={config.primaryColor} title={config.appTitle}/>
+          <AcquireUserView/>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          Loading...
+        </div>
+      );
+    }
+
   }
 }
 

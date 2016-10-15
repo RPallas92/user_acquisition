@@ -30,7 +30,13 @@ class InMemoryConfigStore {
             primaryColor: '#000000',
             secondaryColor: '#01409C',
             acquistionSchema: {
-
+                title: "User Acquisition",
+                type: "object",
+                required: ["title"],
+                properties: {
+                    title: { type: "string", title: "Title", default: "A new task" },
+                    done: { type: "boolean", title: "Done?", default: false }
+                }
             },
             bannerImage: 'http://za.shadestation.com/media/thumbs/960x152/media/header_images/Shade%20Station%20originals%20bannerfw960fh152.jpg'
         }
@@ -38,7 +44,7 @@ class InMemoryConfigStore {
 
     //getConfig :: Promise (Config)
     getConfig(configParams) {
-        return Promise.resolve(this.acquisitions);
+        return Promise.resolve(this.config);
     }
 
 }

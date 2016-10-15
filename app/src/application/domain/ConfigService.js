@@ -32,19 +32,25 @@ class ConfigService {
     loadConfig() {
         if (this.mustLoadConfig()) {
             const configParams = {}; //TODO
-            this.getConfig.execute(configParams)
-                .then((config) => this.config = config)
+            return this.getConfig.execute(configParams)
+                .then((config) => this.setConfigObject(config))
+                .then(() => this.config)
+        } else {
+            return Promise.resolve(this.config)
         }
+    }
+
+    setConfigObject(config) {
+        return Object.keys(config).forEach((key) => this.config[key] = config[key]);
     }
 
     mustLoadConfig() {
         return Object.keys(this.config).length === 0 && this.config.constructor === Object;
     }
 
-    getAcquisitionSchema() {
-        //TODO
+    getConfig() {
+        return this.loadConfig();
     }
-
 }
 
 export default ConfigService;

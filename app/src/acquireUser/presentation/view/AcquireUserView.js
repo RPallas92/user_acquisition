@@ -25,11 +25,9 @@
 
 import './AcquireUserView.css';
 import React, { Component } from 'react';
-
-import TitleBar from '../../../application/components/TitleBar';
 import Form from "react-jsonschema-form";
-
 import Presenter from '../presenter/AcquireUserPresenter';
+import config from '../../../application/config/Config';
 
 
 class AcquireUserView extends Component {
@@ -38,16 +36,6 @@ class AcquireUserView extends Component {
     this.presenter = new Presenter(this);
     this.state = {
       user: {}
-    };
-
-    this.schema = {
-        title: "User Acquisition",
-        type: "object",
-        required: ["title"],
-        properties: {
-            title: {type: "string", title: "Title", default: "A new task"},
-            done: {type: "boolean", title: "Done?", default: false}
-        }
     };
   }
 
@@ -63,12 +51,19 @@ class AcquireUserView extends Component {
   render() {
     return (
       <div>
-        <TitleBar title={"New York Marathon"}/>
-        <Form schema={this.schema}
+        <Form schema={config.acquistionSchema}
             onChange={() => console.log("changed")}
             onSubmit={() =>console.log("submitted")}
-            onError={() =>console.log("errors")} />
-            <img role="presentation" src={'http://za.shadestation.com/media/thumbs/960x152/media/header_images/Shade%20Station%20originals%20bannerfw960fh152.jpg'} className="banner"/>
+            onError={() =>console.log("errors")}>
+
+            <div>
+              <button style={{backgroundColor: config.secondaryColor, color: 'white'}} className="btn" type="submit">Submit</button>
+            </div>
+
+        </Form>
+
+        <img role="presentation" src={config.bannerImage} className="banner"/>
+
       </div>
     );
   }
@@ -76,6 +71,3 @@ class AcquireUserView extends Component {
 
 
 export default AcquireUserView;
-
-
-
