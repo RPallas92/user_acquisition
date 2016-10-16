@@ -54,7 +54,7 @@ class AcquireUserPresenter {
      */
     storeAcquisition(acquisition) {
         return this.storeUserAcquistion.execute(acquisition)
-            .then(() => this.view.showMessage('Acquisition stored'));
+            .then(() => this.view.ls('Acquisition stored'));
     }
 
 

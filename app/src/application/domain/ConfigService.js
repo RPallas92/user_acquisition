@@ -45,7 +45,8 @@ class ConfigService {
     }
 
     mustLoadConfig() {
-        return Object.keys(this.config).length === 0 && this.config.constructor === Object;
+        //Load only if it is empty (it only has the apiUrl property)
+        return Object.keys(this.config).length === 1 && this.config.constructor === Object;
     }
 
     getConfig() {

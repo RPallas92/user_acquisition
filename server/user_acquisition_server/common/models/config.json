@@ -1,0 +1,35 @@
+{
+  "name": "config",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appTitle": {
+      "type": "string",
+      "required": true
+    },
+    "primaryColor": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryColor": {
+      "type": "string",
+      "required": true
+    },
+    "bannerImage": {
+      "type": "string",
+      "required": true
+    },
+    "acquistionSchema": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

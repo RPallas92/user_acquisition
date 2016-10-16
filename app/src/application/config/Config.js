@@ -23,5 +23,7 @@
  *
  */
 
-const config = {};
+const config = {
+    apiUrl: 'http://localhost:3088'
+};
 export default config;
