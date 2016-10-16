@@ -22,3 +22,22 @@
  * SOFTWARE.
  *
  */
+
+import config from '../../../../application/config/Config';
+import 'whatwg-fetch';
+
+class CloudConfigStore {
+
+    constructor() {
+        this.apiUrl = config.apiUrl;
+    }
+
+    //getConfig :: Promise (Config)
+    getConfig(configParams) {
+        var url = this.apiUrl + '/configs/' + configParams;
+        return fetch(url).then((response) => response.json());
+    }
+
+}
+
+export default CloudConfigStore;

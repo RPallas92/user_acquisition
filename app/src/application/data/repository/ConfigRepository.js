@@ -26,7 +26,7 @@
 class ConfigRepository {
     constructor(configStoreFactory) {
         this.configStoreFactory = configStoreFactory;
-        this.configDataStore = this.configStoreFactory.createInMemoryDataStore();
+        this.configDataStore = this.configStoreFactory.createCloudDataStore();
     }
 
     getConfig(configParams) {

@@ -24,10 +24,15 @@
  */
 
 import InMemoryConfigStore from './InMemoryConfigStore';
+import CloudConfigStore from './CloudConfigStore.js'
 
 class ConfigStorefactory {
     createInMemoryDataStore() {
         return new InMemoryConfigStore();
+    }
+
+    createCloudDataStore() {
+        return new CloudConfigStore();
     }
 }
 export default ConfigStorefactory;

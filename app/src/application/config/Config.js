@@ -24,6 +24,7 @@
  */
 
 const config = {
-    apiUrl: 'http://localhost:3088'
+    apiUrl: 'http://localhost:3088/api',
+    appId: 'newYorkMarathon'
 };
 export default config;

@@ -31,7 +31,7 @@ class ConfigService {
 
     loadConfig() {
         if (this.mustLoadConfig()) {
-            const configParams = {}; //TODO
+            const configParams = this.config.appId;
             return this.getConfig.execute(configParams)
                 .then((config) => this.setConfigObject(config))
                 .then(() => this.config)
@@ -45,8 +45,8 @@ class ConfigService {
     }
 
     mustLoadConfig() {
-        //Load only if it is empty (it only has the apiUrl property)
-        return Object.keys(this.config).length === 1 && this.config.constructor === Object;
+        //Load only if it is empty (it only has apiUrl and appId properties)
+        return Object.keys(this.config).length === 2 && this.config.constructor === Object;
     }
 
     getConfig() {
