@@ -22,3 +22,33 @@
  * SOFTWARE.
  *
  */
+
+import config from '../../../../application/config/Config';
+import 'whatwg-fetch';
+
+class CloudUserDataStore {
+
+    constructor() {
+        this.apiUrl = config.apiUrl;
+    }
+
+    acquistions() {
+        var url = this.apiUrl + '/acquisitions';
+        return fetch(url).then((response) => response.json());
+    }
+
+    storeUserAcquisition(acquisition) {
+        var url = this.apiUrl + '/acquisitions';
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(acquisition)
+        })
+    }
+
+}
+
+export default CloudUserDataStore;

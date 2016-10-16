@@ -24,10 +24,14 @@
  */
 
 import InMemoryUserDataStore from './InMemoryUserDataStore';
+import CloudUserDataStore from './CloudUserDataStore'
 
 class UserAcquisitionStoreFactory {
     createInMemoryDataStore() {
         return new InMemoryUserDataStore();
+    }
+    createCloudDataStore() {
+        return new CloudUserDataStore();
     }
 }
 export default UserAcquisitionStoreFactory;

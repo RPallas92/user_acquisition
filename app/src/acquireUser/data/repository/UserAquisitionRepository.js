@@ -27,8 +27,7 @@
 class UserAcquisitionRepository {
     constructor(acquisitionStoreFactory) {
         this.userAcquisitionStoreFactory = acquisitionStoreFactory;
-        //this.userDataStore = this.useracquisitionStoreFactory.createCloudDataStore();
-        this.userDataStore = this.userAcquisitionStoreFactory.createInMemoryDataStore();
+        this.userDataStore = this.userAcquisitionStoreFactory.createCloudDataStore();
     }
 
     //storeUserAcquisition :: Promise (Error)
