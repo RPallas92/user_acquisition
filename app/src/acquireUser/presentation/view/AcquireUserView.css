@@ -4,5 +4,10 @@
 }
 
 .acquisitionForm {
-    padding: 0 5px;
+    padding: 0 25px;
+    margin-top: 15px;
+}
+
+.acquisitionForm ul.list-inline {
+    line-height: 40px;
 }
