@@ -38,29 +38,41 @@ Launches the test runner in the interactive watch mode.
 
 
 **Work Flow**
+
 - Set backend url in app/app_src/src/application/config/Config.js
+
 - Build the app with `npm run build`
+
 - Copy the contents of app/app_src/build to app/cordova/www
+
 - (Tweak) delete first slash in index.html routes <link href="static/css/main.bcdf1b83.css" rel="stylesheet"> and <script type="text/javascript" src="static/js/main.89e8766c.js"></script>
+
 - Run `cordova prepare` and `cordova run`
+
 
 # Backend
 
 The backend is a REST API written in JavaScript.
 
 Technologies: 
+
 - Node.js 
 - LoopBack Framework by IBM
 - Mongo DB
 
 **Work Flow**
+
 - Run mongo `mongod`
+
 - Run backend `node .` (server/user_acquisition_server)
+
 - Explore the API in the browser http://localhost:3088/explorer/
 
 
 
+
 **License**
+
 MIT
 
 
