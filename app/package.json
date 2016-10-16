@@ -10,7 +10,8 @@
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
-    "react-jsonschema-form": "^0.40.0"
+    "react-jsonschema-form": "^0.40.0",
+    "react-s-alert": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

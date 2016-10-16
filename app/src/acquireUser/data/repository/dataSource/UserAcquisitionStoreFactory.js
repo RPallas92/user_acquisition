@@ -23,11 +23,11 @@
  *
  */
 
-import inMemoryUserDataStore from './InMemoryUserDataStore';
+import InMemoryUserDataStore from './InMemoryUserDataStore';
 
 class UserAcquisitionStoreFactory {
     createInMemoryDataStore() {
-        return inMemoryUserDataStore;
+        return new InMemoryUserDataStore();
     }
 }
 export default UserAcquisitionStoreFactory;

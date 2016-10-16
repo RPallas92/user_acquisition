@@ -53,14 +53,8 @@ class AcquireUserPresenter {
      *  Executes the StoreUserAcquisition Use case and notifies the view with the result
      */
     storeAcquisition(acquisition) {
-        return this.storeUserAcquistion.execute(acquisition);
-    }
-
-    /**
-     * Returns a promise with the acquisition schema in order to render de form
-     */
-    retrieveAcquisitionSchema() {
-
+        return this.storeUserAcquistion.execute(acquisition)
+            .then(() => this.view.showMessage('Acquisition stored'));
     }
 
 

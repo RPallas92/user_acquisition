@@ -24,10 +24,14 @@
  */
 
 import './AcquireUserView.css';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import React, { Component } from 'react';
 import Form from "react-jsonschema-form";
+import Alert from 'react-s-alert';
 import Presenter from '../presenter/AcquireUserPresenter';
 import config from '../../../application/config/Config';
+
 
 
 class AcquireUserView extends Component {
@@ -48,22 +52,27 @@ class AcquireUserView extends Component {
   }
 
 
+  showMessage(message){
+    Alert.success(message, {
+        position: 'top-right',
+        effect: 'slide',
+        timeout: 'none'
+    });
+  }
+
+
   render() {
     return (
       <div>
         <Form className="acquisitionForm"
             schema={config.acquistionSchema}
-            onChange={() => console.log("changed")}
-            onSubmit={() =>console.log("submitted")}
-            onError={() =>console.log("errors")}>
-
+            onSubmit={(data) => this.presenter.onFormSubmitted(data.formData)}>
             <div>
               <button style={{backgroundColor: config.secondaryColor, color: 'white'}} className="btn" type="submit">Submit</button>
             </div>
-
         </Form>
-
         <img role="presentation" src={config.bannerImage} className="banner"/>
+        <Alert stack={{limit: 1}} />
 
       </div>
     );
